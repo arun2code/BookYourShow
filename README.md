@@ -22,7 +22,9 @@ Search -> get cities on page load -> select a particular list -> Load all theatr
     - List<String> getCities();
     - List<Show> getAllShows(@PathVariable String cityName);
     - List<ShowsResponse> getAvailableTheaterByShow(@RequestParam String showId);
-    - List<ShowsResponse> getShowsByTheater(@RequestParam String theaterId);   
+    - List<ShowsResponse> getShowsByTheater(@RequestParam String theaterId);
+    - Search parameters(keyword, city, lat_log, radius, start_datetime, end_datetime, postal_code, pagination)
+
 -  ShowBuilderService - Consumed by SearchService to build a show (theatre+hall+layout+showtime);
 
 
@@ -32,3 +34,8 @@ Documents -
 - Theatre : {theatreId, halls : [hall1 :{}, hall2:{}]} 
 - Movie : {movieId, movieName, description, genere, movieReviews: {}}
 - MovieReview : {comments : [], ratings : [], overallRating}
+
+RadisDB
+- on page load, load and save the cities, 
+- keep fetched theatres, shows
+
