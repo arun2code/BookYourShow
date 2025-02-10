@@ -17,6 +17,11 @@ Search -> get cities on page load -> select a particular list -> Load all theatr
 - ShowCatalogService - Used by admin to update events/movide details into the system.
 - SupportService - Used by admin to monitor and manage admin activities.
 
+Databases
+    - MongoDB- to store theatre details, hall layout, movies/events details, shows reviews and comments by users.
+    - Oracle - to store, user account details, user booking history, list of cities, movies, theatres.
+    - RedisDB - to cache the data of cities (on page load), fetched theatres, fetched movies, fetched halls details for selected theatre.
+    
 **Booking Service (B2C)
 - SearchService  - used to get Cities, Theatres, shows details
     - List<String> getCities();
@@ -25,7 +30,8 @@ Search -> get cities on page load -> select a particular list -> Load all theatr
     - List<ShowsResponse> getShowsByTheater(@RequestParam String theaterId);
     - Search parameters(keyword, city, lat_log, radius, start_datetime, end_datetime, postal_code, pagination)
 
--  ShowBuilderService - Consumed by SearchService to build a show (theatre+hall+layout+showtime);
+-  ShowBuilderService - Consumed by SearchService to build a show (theatre+hall+layout+showtime) and create a show. Show object will be persisted in Oracle DB with required information. User will linked to booked shows.
+
 
 
 ## Database Design
